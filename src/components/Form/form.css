@@ -1,0 +1,66 @@
+.matrix-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 128, 128, .75);
+    max-width: 60%;
+    margin: 0 auto;
+    padding: 20px 40px 40px 50px;
+    color: #fff;
+}
+
+.matrix-form.hidden {
+    display: none;
+}
+
+.matrix-form__inputs-wrapper {
+    max-width: 100%;
+    margin: 0 0 30px;
+    text-align: center;
+}
+
+.matrix-form__title {
+    color: rgb(255, 255, 0);
+    font-size: 3.5em;
+    letter-spacing: .03em;
+    margin: 0 0 30px;
+}
+
+.matrix-form__input-holder {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 7px 0;
+    font-size: 1.25em;
+}
+
+.matrix-form__label {
+    transition: color .2s linear;
+    cursor: pointer;
+}
+
+.matrix-form__label:hover {
+    color: rgba(255, 255, 255, .8);
+}
+
+.matrix-form__input {
+    max-width: 20%;
+    padding: 0 0 0 5px;
+    color: rgb(0, 0, 0, .8);
+}
+
+.matrix-form__create-btn {
+    min-width: 150px;
+    padding: 10px 20px;
+    border: 2px solid rgba(101, 202, 248, .6);
+    background-color: rgba(101, 202, 248, .9);
+    color: rgba(255, 0, 0, .8);
+    font-size: 1.2rem;
+    box-shadow: inset 1px 1px 7px 2px rgb(255, 255, 255, .6), 0px 2px 5px 0 rgb(0, 0, 0, .4);
+    transition: all .2s linear;
+}
+
+.matrix-form__create-btn:hover {
+    box-shadow: inset 1px 1px 10px 0 rgb(255, 255, 255, .6), 0px 2px 5px 0 rgb(255, 255, 255, .4);
+}

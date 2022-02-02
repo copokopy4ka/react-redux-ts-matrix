@@ -1,0 +1,130 @@
+table {
+    border-spacing: 5px;
+}
+
+.matrix {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    padding: 30px 15px;
+}
+
+.matrix.hidden {
+    display: none;
+}
+
+.matrix__add-row-btn {
+    padding: 10px 20px;
+    min-width: 150px;
+    font-size: 1.25rem;
+    background-color: rgba(255, 255, 0, .8);
+    border: 2px solid rgba(255, 255, 0, .8);
+    color: rgb(0, 117, 117);
+    box-shadow: inset 1px 1px 7px 2px rgb(255, 255, 255, .6), 0px 2px 5px 0 rgb(0, 0, 0, .4);
+    margin: 0 0 20px;
+}
+
+.matrix__add-row-btn:hover {
+    box-shadow: inset 1px 1px 10px 0 rgb(255, 255, 255, .6), 0px 2px 5px 0 rgb(255, 255, 255, .4);
+}
+
+.matrix__back-btn {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    font-size: .65rem;
+    padding: 5px 10px 5px 7px;
+    background-color: rgba(0, 27, 179, .4);
+    border: 1px solid rgba(0, 27, 179, .8);
+    color: rgb(2, 0, 117);
+    box-shadow: 0px 2px 5px 0 rgb(0, 0, 0, .4);
+}
+
+.matrix__back-btn:hover {
+    box-shadow: 0 1px 4px 0 rgb(0, 0, 0, .4);
+    background-color: rgba(0, 27, 179, .8);
+    color: #fff;
+}
+
+.matrix__header-cell {
+    min-width: 65px;
+    height: 40px;
+}
+
+.matrix__header-cell:first-child {
+    min-width: 25px;
+}
+
+td {
+    text-align: center;
+}
+
+.matrix__footer-cell,
+.matrix__sum {
+    border-radius: 10px;
+    height: 40px;
+    color: #fff;
+    background-color: rgba(0, 128, 128, .75);
+    font-weight: bold;
+}
+
+.matrix__footer-cell {
+    padding: 0 5px;
+}
+
+.matrix__footer-cell:first-child {
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+}
+
+.matrix__numbering {
+    font-weight: bold;
+}
+
+.matrix__remove-row-btn {
+    border: none;
+    background-color: #fff;
+    padding: 0 10px;
+    color: #000;
+}
+
+.matrix__remove-row-btn:hover {
+    color: red;
+    transform: rotate(180deg) scale(1.3);
+    transform-origin: center;
+}
+
+.matrix__sum {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.matrix__cell {
+    font-weight: bold;
+    border-radius: 10px;
+    height: 40px;
+    color: rgb(0, 3, 57);
+    background-color: rgba(115, 211, 255, 0.9);
+    transition: all .2s linear;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+.matrix__cell.closest {
+    background-color: rgba(255, 255, 0, .8);
+}
+
+.matrix__cell:hover,
+.matrix__cell.closest:hover {
+    color: #fff;
+    background-color: rgba(215, 0, 0, 0.55);
+}
+
+.matrix__cell.show-persent {
+    background-color: #fff;
+    font-weight: 400;
+}
