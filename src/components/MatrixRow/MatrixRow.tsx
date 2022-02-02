@@ -20,7 +20,9 @@ const MatrixRow = ({cellsArr, index}: {cellsArr: any[], index: number}) => {
     const increaseCeilValue = (e: React.MouseEvent, rowArr: any[], id: number) => {
         rowArr.find(ceil => Object.values(ceil).includes(id)).amount += 1;
         let cellsSum = rowArr.reduce((prev, item) => prev + item.amount, 0);
-        rowArr.map(el => el.percentage = Math.round(el.amount / cellsSum * 100))
+        rowArr.map(el => el.percentage = Math.round(el.amount / cellsSum * 100));
+        resetClosest();
+        setClosest(e);
         dispatch({type: 'RESET_STATE', payload: store.matrixArr});
     }
 
