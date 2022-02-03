@@ -33,8 +33,6 @@ const reducer = (state = defaultState, action: IAction) => {
             return {...state, matrixArr: [...action.payload]};
         case 'REGENERATE_MATRIX':
             return {...state, ...action.payload};
-        case 'DYNAMIC_PERCENTAGE':
-            return {...state, matrixArr: [...action.payload]};
         default:
             return state;
     }

@@ -27,6 +27,8 @@ const MatrixRow = ({cellsArr, index}: {cellsArr: any[], index: number}) => {
     }
 
     const setClosest = (e: React.MouseEvent) => {
+        resetClosest();
+        resetPercentage();
         const payload = findClosest(+e.currentTarget.id, store)
         dispatch({type: 'RESET_STATE', payload: payload})
     }
@@ -37,6 +39,8 @@ const MatrixRow = ({cellsArr, index}: {cellsArr: any[], index: number}) => {
     }
 
     const setPercentage = (id: number) => {
+        resetClosest();
+        resetPercentage();
         store.matrixArr.map(arr => {
             if (arr.find((cell: any) => cell.id === id)) {
                 arr.map((item: any) => item.isAmountInPercent = !item.isAmountInPercent);
@@ -49,7 +53,7 @@ const MatrixRow = ({cellsArr, index}: {cellsArr: any[], index: number}) => {
         for (let arr of store.matrixArr) {
             arr.map((el: any) => {
                 if (el.isAmountInPercent) {
-                    el.isAmountInPercent = !el.isAmountInPercent;
+                    el.isAmountInPercent = false;
                 }
             })
         }
