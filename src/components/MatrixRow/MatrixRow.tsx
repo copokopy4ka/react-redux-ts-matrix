@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { IDefaultState } from "../../store";
 import Button from "../UI/Button/Button";
 import { findClosest, clearClosest } from "../../functions";
+import MatrixCell from "components/MatrixCell/MatrixCell";
 
 const MatrixRow = ({cellsArr, index}: {cellsArr: any[], index: number}) => {
     const dispatch = useDispatch();
@@ -62,10 +63,10 @@ const MatrixRow = ({cellsArr, index}: {cellsArr: any[], index: number}) => {
 
     return (
         <tr>
-            <td className="matrix__numbering">{index + 1}</td>
+            <MatrixCell className="matrix__numbering">{index + 1}</MatrixCell>
             {cellsArr.map(cell => {
                 newKey++;
-                return <td
+                return <MatrixCell
                         style={cell.isAmountInPercent ? {background: `linear-gradient(0deg, rgba(255,0,0,1) 0%, rgba(255,0,0,1) ${cell.percentage}%, rgba(255,255,255,1) ${cell.percentage}%, rgba(255,255,255,1) 100%)`, borderRadius: '0'} : {}}
                         className={cell.isClosest
                             ? [...cellsClasses, 'closest'].join(' ')
@@ -81,15 +82,15 @@ const MatrixRow = ({cellsArr, index}: {cellsArr: any[], index: number}) => {
                             {cell.isAmountInPercent
                                 ? `${cell.percentage}%`
                                 : cell.amount}
-                        </td>
+                        </MatrixCell>
             })}
-            <td
-                 className="matrix__sum"
+            <MatrixCell
+                className="matrix__sum"
                 onMouseEnter={(e) => setPercentage(Number(e.currentTarget.previousElementSibling?.id))}
                 onMouseLeave={() => resetPercentage()}>
                    {cellsSum}
-            </td>
-            <td><Button className="btn matrix__remove-row-btn" onClick={removeRow}>&times;</Button></td>
+            </MatrixCell>
+            <MatrixCell><Button className="btn matrix__remove-row-btn" onClick={removeRow}>&times;</Button></MatrixCell>
         </tr>
     )
 }

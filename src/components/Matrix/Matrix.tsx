@@ -4,6 +4,8 @@ import { IDefaultState } from "../../store";
 import MatrixRow from "../MatrixRow/MatrixRow";
 import { addRow } from "../../functions";
 import Button from "../UI/Button/Button";
+import MatrixHeaderCell from "components/MatrixHeaderCell/MatrixHeaderCell";
+import MatrixCell from "components/MatrixCell/MatrixCell";
 import './matrix.css'
 
 
@@ -41,16 +43,16 @@ const Matrix = () => {
                 <thead>
                     {tableData.length ?
                     <tr>
-                        <th className="matrix__header-cell">№</th>
+                        <MatrixHeaderCell className="matrix__header-cell">№</MatrixHeaderCell>
                         {tableData[0].map((_: any, index: number) => {
                             newKey++;
-                            return <th
+                            return <MatrixHeaderCell
                                     className="matrix__header-cell"
                                     key={newKey}>
                                         {index + 1}
-                                    </th>
+                                    </MatrixHeaderCell>
                         })}
-                        <th className="matrix__header-cell">Sum</th>
+                        <MatrixHeaderCell className="matrix__header-cell">Sum</MatrixHeaderCell>
                     </tr>
                     :
                     null}
@@ -62,21 +64,20 @@ const Matrix = () => {
                     })}
                     {tableData.length
                         ? <tr>
-                            <td className="matrix__footer-cell">Avg</td>
+                            <MatrixCell className="matrix__footer-cell">Avg</MatrixCell>
                             {setAverage(tableData).map(item => {
                                 newKey++;
-                                return <td
+                                return <MatrixCell
                                         className="matrix__footer-cell"
                                         key={newKey}>
                                             {item}
-                                        </td>
+                                        </MatrixCell>
                             })}
-                            <td className="matrix__footer-cell">
+                            <MatrixCell className="matrix__footer-cell">
                                 {setAverage(tableData).reduce((prev, el) => prev + el)}
-                            </td>
+                            </MatrixCell>
                         </tr>
-                        :
-                        null
+                        : null
                     }
                 </tbody>
             </table>
